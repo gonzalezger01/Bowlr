@@ -39,6 +39,7 @@
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
+    <itemPath>README.md</itemPath>
   </logicalFolder>
   <sourceRootList>
     <Elem>/usr/local/include/pistache</Elem>
@@ -90,6 +91,8 @@
       </item>
       <item path="OculusHeaders/Ocr.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="README.md" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Src/DillApi.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Src/Ocr.cpp" ex="false" tool="1" flavor2="0">
@@ -136,6 +139,8 @@
       <item path="OculusHeaders/DillApi.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="OculusHeaders/Ocr.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="README.md" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Src/DillApi.cpp" ex="false" tool="1" flavor2="0">
       </item>
