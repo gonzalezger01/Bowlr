@@ -9,6 +9,6 @@
 #include "../OculusHeaders/DillApi.h"
 
 int main() {
-    DillApi dapi;
+    Oculus::DillApi dapi;
     dapi.start();
 }

@@ -27,7 +27,14 @@ Oculus::Ocr::~Ocr(){
     delete [] content;//delete the char array
 }
 
-Oculus::Ocr& Oculus::Ocr::operator =(const Ocr& cpy){}
+//copy assign
+//we should take care of self assignment
+Oculus::Ocr& Oculus::Ocr::operator =(const Ocr& cpy){
+    img = new Pix (*cpy.img);
+    content = new char (*cpy.content);
+    fileName = cpy.fileName;
+}
 
+//copy constructor
 Oculus::Ocr::Ocr(const Ocr& cpy): 
 api(new tesseract::TessBaseAPI(*cpy.api)) ,img(new PIX(*cpy.img)){}

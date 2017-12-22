@@ -20,6 +20,9 @@ namespace Oculus{
 class Ocr{
 //with tesseract we need to start the api  
 public:
+    //default constructor for Ocr
+    Ocr() = default;
+    
     //pass the filename to it
     Ocr(const std::string &fn);
     

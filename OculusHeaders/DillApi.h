@@ -18,6 +18,9 @@
 #include <pistache/endpoint.h>
 #include <pistache/net.h>
 #include <memory>
+#include <fstream>
+#include "Ocr.h"
+
 namespace Oculus{
 class DillApi {
 public:
@@ -33,6 +36,7 @@ private:
     
     std::shared_ptr<Pistache::Http::Endpoint> endpoint;
     Pistache::Rest::Router router;
+    Ocr ocr;
 };
 }
 #endif /* DILLAPI_H */

@@ -63,4 +63,15 @@ void Oculus::DillApi::setRoutes() {//routes
 
 void Oculus::DillApi::postImg(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
     //in here we should take the content respond to the user properly
+    std::string contentJson;
+    std::string content;
+    
+    //write the file
+    std::ofstream fileOut("img", std::ofstream::binary);
+    fileOut << request.body();
+    
+    content = ocr.getText();
+    contentJson = "{\"content:\"" + contentJson + "\"}";
+    
+    response.send(Pistache::Http::Code::Accepted, contentJson, MIME(Application, Json));
 }
