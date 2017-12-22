@@ -46,7 +46,7 @@ void Oculus::DillApi::stop() {//shutdown
 
 void Oculus::DillApi::console(){//console should shut down when it detects HALT
     std::string command;
-    std::cout << "Console: \n";
+    std::cout << "Console: ";
     std::cin >> command;
     
     if(command == "HALT"){
@@ -58,7 +58,7 @@ void Oculus::DillApi::console(){//console should shut down when it detects HALT
 }
 
 void Oculus::DillApi::setRoutes() {//routes
-        Pistache::Rest::Routes::Post(router, "img/g", Pistache::Rest::Routes::bind(&DillApi::postImg, this));
+        Pistache::Rest::Routes::Post(router, "img/", Pistache::Rest::Routes::bind(&DillApi::postImg, this));
     }
 
 void Oculus::DillApi::postImg(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
@@ -70,6 +70,7 @@ void Oculus::DillApi::postImg(const Pistache::Rest::Request& request, Pistache::
     std::ofstream fileOut("img", std::ofstream::binary);
     fileOut << request.body();
     
+    ocr.setFile("img");
     content = ocr.getText();
     contentJson = "{\"content:\"" + contentJson + "\"}";
     

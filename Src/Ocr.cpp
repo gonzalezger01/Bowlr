@@ -20,6 +20,10 @@ std::string Oculus::Ocr::getText(){
     return content;
 }
 
+void Oculus::Ocr::setFile(const std::string s){
+    fileName = s;
+}
+
 Oculus::Ocr::~Ocr(){
     //we destroy the pointers here or we risk a memory leak
     api->End();//end the tesseract engine

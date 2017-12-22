@@ -29,6 +29,9 @@ public:
     //return the content in the image file as text
     std::string getText();
     
+    //set the file name
+    void setFile(const std::string);
+    
     ~Ocr();//destructor
     Ocr& operator=(const Ocr &cpy);//copy-assign
     Ocr(const Ocr &cpy);//copy constructor
