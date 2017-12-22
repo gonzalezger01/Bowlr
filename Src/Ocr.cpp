@@ -11,6 +11,8 @@ Oculus::Ocr::Ocr(const std::string& fn):fileName(fn){}
 
 std::string Oculus::Ocr::getText(){
     //file processing to get the content should happen here
+    
+    api->Init(nullptr, "eng");//have to start the OCR system tesseract
     img = pixRead(fileName.c_str());
     api->SetImage(img);
     

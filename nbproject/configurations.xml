@@ -7,6 +7,15 @@
       <itemPath>OculusHeaders/DillApi.h</itemPath>
       <itemPath>OculusHeaders/Ocr.h</itemPath>
     </logicalFolder>
+    <logicalFolder name="f1"
+                   displayName="PistacheHeaders"
+                   projectFiles="true"
+                   kind="ROOT">
+      <itemPath>/usr/local/include/pistache/endpoint.h</itemPath>
+      <itemPath>/usr/local/include/pistache/http.h</itemPath>
+      <itemPath>/usr/local/include/pistache/net.h</itemPath>
+      <itemPath>/usr/local/include/pistache/router.h</itemPath>
+    </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
                    projectFiles="true">
@@ -31,6 +40,9 @@
       <itemPath>Makefile</itemPath>
     </logicalFolder>
   </logicalFolder>
+  <sourceRootList>
+    <Elem>/usr/local/include/pistache</Elem>
+  </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
     <conf name="Debug" type="1" platformSpecific="true">
@@ -59,6 +71,20 @@
         </linkerTool>
       </compileType>
       <item path="." ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="/usr/local/include/pistache/endpoint.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/usr/local/include/pistache/http.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="/usr/local/include/pistache/net.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="/usr/local/include/pistache/router.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
       <item path="OculusHeaders/DillApi.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -92,6 +118,20 @@
         </asmTool>
       </compileType>
       <item path="." ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="/usr/local/include/pistache/endpoint.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/usr/local/include/pistache/http.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="/usr/local/include/pistache/net.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="/usr/local/include/pistache/router.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
       <item path="OculusHeaders/DillApi.h" ex="false" tool="3" flavor2="0">
       </item>
