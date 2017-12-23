@@ -65,14 +65,35 @@ void Oculus::DillApi::postImg(const Pistache::Rest::Request& request, Pistache::
     //in here we should take the content respond to the user properly
     std::string contentJson;
     std::string content;
+    std::string requestContent;
+    std::string *out = new std::string();
+    int positionCtr= 0;
     
-    //write the file
+    //write the file(assuming we get content as binary)
     std::ofstream fileOut("img", std::ofstream::binary);
-    fileOut << request.body();
+    //fileOut << request.body();
+    requestContent = request.body();
     
+    //find the comma right before the base64
+    for(auto it = requestContent.begin(); it != requestContent.end() && *it != ','; ++it){
+        ++positionCtr;
+    }
+    
+    //trouble causing code, this is too rigid and unflexible for requests
+    content = requestContent.substr(positionCtr+1, (requestContent.size() - 34));
+    std::cout << content << "\n";
+        
+    //write the file(assming its base64)
+    Base64::Decode(content, out);
+    //std::cout << request.body() << "\n";
+    std::cout << "***************\n";
+    fileOut << *out;
+    
+    //tell ocr to get the content
     ocr.setFile("img");
     content = ocr.getText();
-    contentJson = "{\"content:\"" + contentJson + "\"}";
+    std::cout << content;
+    contentJson = "{\"content:\":\"" + content + "\"}";
     
     response.send(Pistache::Http::Code::Accepted, contentJson, MIME(Application, Json));
 }

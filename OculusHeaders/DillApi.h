@@ -20,6 +20,7 @@
 #include <memory>
 #include <fstream>
 #include "Ocr.h"
+#include "base64.h"
 
 namespace Oculus{
 class DillApi {
