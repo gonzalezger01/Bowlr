@@ -62,38 +62,41 @@ void Oculus::DillApi::setRoutes() {//routes
     }
 
 void Oculus::DillApi::postImg(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
-    //in here we should take the content respond to the user properly
-    std::string contentJson;
-    std::string content;
-    std::string requestContent;
-    std::string *out = new std::string();
-    int positionCtr= 0;
+    nlohmann::json j;
+    std::string requestBody;
+    std::string base64img;
+    std::string ocrResult;
+    std::unique_ptr<std::string*> b64Decode;
+    int posCtr;
     
     //write the file(assuming we get content as binary)
     std::ofstream fileOut("img", std::ofstream::binary);
-    //fileOut << request.body();
-    requestContent = request.body();
+    fileOut << request.body();
+    requestBody = request.body();
     
     //find the comma right before the base64
-    for(auto it = requestContent.begin(); it != requestContent.end() && *it != ','; ++it){
-        ++positionCtr;
+    for(auto it = requestBody.begin(); it != requestBody.end() && *it != ','; ++it){
+        ++posCtr;
     }
     
-    //trouble causing code, this is too rigid and unflexible for requests
-    content = requestContent.substr(positionCtr+1, (requestContent.size() - 34));
-    std::cout << content << "\n";
+    //trouble causing code, this is too brittle for requests
+    base64img = requestBody.substr(posCtr+1, (requestBody.size() - 34));
+    std::cout << base64img << "\n";
         
-    //write the file(assming its base64)
-    Base64::Decode(content, out);
-    //std::cout << request.body() << "\n";
+    //write the file(assuming its base64)
+    Base64::Decode(base64img, *b64Decode);
+    std::cout << request.body() << "\n";
     std::cout << "***************\n";
-    fileOut << *out;
+    fileOut << *b64Decode;
     
     //tell ocr to get the content
     ocr.setFile("img");
-    content = ocr.getText();
-    std::cout << content;
-    contentJson = "{\"content:\":\"" + content + "\"}";
+    ocrResult = ocr.getText();
+    std::cout << ocrResult;
     
-    response.send(Pistache::Http::Code::Accepted, contentJson, MIME(Application, Json));
+    j = {{"Frame1:",{1,4}},{"Frame2:",{1,4}},{"Frame3:",{1,4}},{"Frame4:",{1,4}},{"Frame5:",{1,4}},{"Frame6:",{1,4}},
+    {"Frame7:",{1,4}},{"Frame8:",{1,4}},{"Frame9:",{1,4}},{"Frame10:",{1,4}},{"Frame11:",{1,4}},{"Frame12:",{1,4}}};
+    
+    std::cout << j.dump();
+    response.send(Pistache::Http::Code::Accepted, j.dump(), MIME(Application, Json));
 }

@@ -21,6 +21,7 @@
 #include <fstream>
 #include "Ocr.h"
 #include "base64.h"
+#include "json.hpp"
 
 namespace Oculus{
 class DillApi {

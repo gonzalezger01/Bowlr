@@ -67,17 +67,17 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/oculus: ${OBJECTFILES}
 ${OBJECTDIR}/Src/DillApi.o: Src/DillApi.cpp
 	${MKDIR} -p ${OBJECTDIR}/Src
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Werror -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Src/DillApi.o Src/DillApi.cpp
+	$(COMPILE.cc) -g -Werror -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Src/DillApi.o Src/DillApi.cpp
 
 ${OBJECTDIR}/Src/Ocr.o: Src/Ocr.cpp
 	${MKDIR} -p ${OBJECTDIR}/Src
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Werror -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Src/Ocr.o Src/Ocr.cpp
+	$(COMPILE.cc) -g -Werror -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Src/Ocr.o Src/Ocr.cpp
 
 ${OBJECTDIR}/Src/main.o: Src/main.cpp
 	${MKDIR} -p ${OBJECTDIR}/Src
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Werror -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Src/main.o Src/main.cpp
+	$(COMPILE.cc) -g -Werror -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Src/main.o Src/main.cpp
 
 # Subprojects
 .build-subprojects:

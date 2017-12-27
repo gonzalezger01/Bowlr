@@ -16,6 +16,7 @@
 #include <leptonica/allheaders.h>
 #include <tesseract/baseapi.h>
 #include <string>
+#include <memory>
 namespace Oculus{
 class Ocr{
 //with tesseract we need to start the api  
@@ -39,8 +40,8 @@ public:
     
 private:
     tesseract::TessBaseAPI *api = new tesseract::TessBaseAPI();
-    PIX *img;
-    char *content;
+    std::unique_ptr<PIX *>img;
+    std::unique_ptr<char*> content;
     std::string fileName;
 };
 }
